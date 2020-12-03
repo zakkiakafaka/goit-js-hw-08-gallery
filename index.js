@@ -23,11 +23,13 @@ const openModal = function (event) {
     modal.classList.add('is-open');
     modalImg.src = event.target.dataset.source;
     console.log(modalImg.src);
+    document.addEventListener('keydown', keyClose);
 };
 
 const closeModal = function () {
     modal.classList.remove('is-open')
     modalImg.src = ""
+    document.removeEventListener('keydown', keyClose) ;
 };
 
 const previousImg = () => {
@@ -69,4 +71,4 @@ const keyClose = (e) => {
 gallery.addEventListener('click', openModal);
 modalBtn.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
-window.addEventListener('keydown', keyClose);
+
